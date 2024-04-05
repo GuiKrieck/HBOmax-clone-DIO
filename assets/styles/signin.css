@@ -1,0 +1,80 @@
+@import url(./global.css);
+
+body{
+    background-image: url(../images/background-movies-series.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.signin-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:24px;
+    margin: 24px;
+    padding: 40px;
+    background-color: var(--form-bg-color)
+}
+
+.signin-form > h1{
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.form__field{
+    background-color: var(--form-field-bg-color);
+    border: var(--form-field-border);
+    border-radius:10px;
+    padding: 16px;
+    font-size: 1rem;
+}
+
+.form__field::placeholder{
+    color: var(--form-field-placeholder);
+}
+
+.form__field:invalid{
+    border-color: var(--form-field-error);
+}
+
+.form__actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.form__actions > a{
+    color: var(--link-color);
+    font-weight: 700;
+}
+
+@media(min-width: 800px){
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .signin-form{
+        width: 50%;
+        max-width: 900px;
+    }
+    .form__actions{
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .form__field{
+        max-width: 100%;
+    }
+}
+

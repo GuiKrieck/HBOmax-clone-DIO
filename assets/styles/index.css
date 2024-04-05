@@ -1,0 +1,311 @@
+@import url(./global.css);
+
+/* presentation */
+.presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+
+    background: var(--presentation-bg-color-gradient);
+    background-size: 500% 500%;
+    animation: moving-gradient 15s ease alternate infinite;
+}
+
+.presentation__channels{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.presentation__title > h1{
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.presentation__title > h1 > span{
+    display: block;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.divider{
+    width: 70%;
+    max-width: 600px;
+    height: 5px;
+    background: var(--divider-bg-color);
+}
+
+.presentation__price{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 40px 50px;
+}
+
+.price-offer{
+    font-family: "Raleway",sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    filter: brightness(2);
+}
+
+.animated-button{
+    
+    animation: wiggle 2.2s linear infinite;
+}
+
+.presentation::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(0deg,var(--primary-color), transparent);
+}
+
+.subscribe{
+    background-image: url(../images/background-movies-series.png);
+    background-size: cover;
+    position: relative;
+}
+
+.subtitle{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.subscribe__plans{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+
+    margin: 40px 0; 
+}
+
+.plans__card{
+    background: var(--card-bg-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px;
+    padding: 40px;
+}
+
+.subscribe__plan{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.subscribe__plan > p{
+    color: var(--secondary-color);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.subscribe__benefits{
+    text-align: left;
+    margin-bottom: 20px;
+    list-style: none;
+    padding-left: 15px;
+}
+
+.subscribe__benefits::marker{
+    content: "+";
+    font-size: 2rem;
+    margin-right: 10px;
+    
+}
+
+.channels{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.channels__cards{
+    display: grid;
+    grid-template-columns: repeat(6, 100%);
+    grid-auto-flow: column;
+    overflow: auto hidden;
+    gap: 32px;
+    padding: 12px;
+}
+
+.cards__info{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: transform 1s, background 1s, border 1s;
+}
+
+.cards__info:hover{
+    transform: scale(1.03);
+    border: 2px solid var(--tertiary-color);
+}
+
+.cards__info:hover .cards__image{
+    opacity: 0;
+}
+
+.cards__image{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 2s;
+}
+
+/* HBO Content */
+
+.cards__info:nth-child(1):hover {
+    background-image: url("../images/hbo-hover_0.webp");
+  }
+  
+  /* Max Originals Content */
+  
+  .cards__info:nth-child(2):hover {
+    background-image: url("../images/MAX-Hover.webp");
+  }
+  
+  /* DC Content */
+  
+  .cards__info:nth-child(3):hover {
+    background-image: url("../images/DC-Hover.webp");
+  }
+  
+  /* WB Content */
+  
+  .cards__info:nth-child(4):hover {
+    background-image: url("../images/WB-Hover.webp");
+  }
+  
+  /* CN Content */
+  
+  .cards__info:nth-child(5):hover {
+    background-image: url("../images/CN-Hover.png");
+  }
+  
+  /* UCL Content */
+  
+  .cards__info:nth-child(6):hover {
+    background-image: url("../images/UCL-Hover.webp");
+  }
+
+
+@media (min-width: 481px){
+    .channels__cards{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row;
+    }
+}
+
+@media (min-width: 801px){
+    .channels__cards{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .subscribe__plan > p {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1141px ){
+    .subscribe__plans{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        perspective: 3000px;
+    }
+    
+    .plans__card{
+        transition: transform 1s, opacity 1s, filter 1s;
+    }
+    #mobile-plan:hover{
+        filter: brightness(1.5);
+    }
+
+    #mobile-plan:hover + #multiscreen-plan{
+        transform: rotateY(-45deg);
+        opacity: .5;
+        }
+
+    #multiscreen-plan:hover{
+        filter: brightness(1.5);
+    }
+
+    #mobile-plan:has(+ #multiscreen-plan:hover) {
+        transform: rotateY(45deg);
+        opacity: .5;
+    }
+
+    .subscribe__benefits{
+        font-size: 1,75rem;
+    }
+}
+
+@media (pointer: coarse) {
+    .cards__info:hover {
+      transform: none;
+    }
+}
+
+/* animations */
+@keyframes moving-gradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes wiggle {
+    0%,
+    10%{
+        transform: rotate(0);
+    }
+    15%{
+        transform: rotate(-20deg);
+    }
+    20%{
+        transform: rotate(20deg);
+    }
+    25%{
+        transform: rotate(-15deg);
+    }
+    30%{
+        transform: rotate(15deg);
+    }
+    35%{
+        transform: rotate(-10deg);
+    }
+    40%{
+        transform: rotate(10deg);
+    }
+    45%,
+    100%{
+        transform: rotate(0);
+    }
+}
